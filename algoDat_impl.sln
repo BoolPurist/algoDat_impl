@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algoDat_impl_console", "algoDat_impl_console\algoDat_impl_console.csproj", "{503693B0-5A9E-4B0F-8BC8-E0C6713A63A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algoDat_impl_test", "algoDat_impl_test\algoDat_impl_test.csproj", "{E5EAD3A9-8AE5-4FAA-B845-BBC3C31D9629}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{503693B0-5A9E-4B0F-8BC8-E0C6713A63A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{503693B0-5A9E-4B0F-8BC8-E0C6713A63A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{503693B0-5A9E-4B0F-8BC8-E0C6713A63A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5EAD3A9-8AE5-4FAA-B845-BBC3C31D9629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5EAD3A9-8AE5-4FAA-B845-BBC3C31D9629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5EAD3A9-8AE5-4FAA-B845-BBC3C31D9629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5EAD3A9-8AE5-4FAA-B845-BBC3C31D9629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
