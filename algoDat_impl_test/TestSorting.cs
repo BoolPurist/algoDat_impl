@@ -28,7 +28,7 @@ public class TestSorting
         Array.Sort(expectedSeq);
         
         // Act
-        sorter.Sort<int>(givenSeq);
+        sorter.Sort(givenSeq);
 
         // Assert
         for (int iArray = 0; iArray < expectedSeq.Length; iArray++)
