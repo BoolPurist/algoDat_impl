@@ -18,6 +18,9 @@ public class TestSorting
     {
         TestsSorting(sorter, new int[] {2, 6, 8});
         TestsSorting(sorter, new int[] {8, 5, 2});
+        TestsSorting(sorter, new int[] {4, 2, 3, 1});
+        TestsSorting(sorter, new int[] {4, -2, 3, -1});
+        TestsSorting(sorter, new int[] {-2, -1, 3, 4});
     }
 
     private void TestsSorting(ISort sorter, int[] givenSeq)
