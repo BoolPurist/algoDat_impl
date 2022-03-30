@@ -6,7 +6,13 @@ class Program
 {
     static void Main()
     {
-        ISort sorter = new InsertionSort();
-        sorter.Sort(new int[]{4, 2, 3, 1});
+        var array = new int[] {1, 2, 3};
+
+        SequenceUtils.InPlaceReverse(array);
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            Console.Write($"{array[i]}");
+        }
     }
 }

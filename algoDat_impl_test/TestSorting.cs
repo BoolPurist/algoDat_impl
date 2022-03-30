@@ -13,6 +13,13 @@ public class TestSorting
         ISort insertionSort = new InsertionSort();
         TestsSortingCases(insertionSort);
     }
+    
+    [Fact]
+    public void Test_BubbleSort()
+    {
+        ISort bubbleSort = new BubbleSort();
+        TestsSortingCases(bubbleSort);
+    }
 
     private void TestsSortingCases(ISort sorter)
     {
