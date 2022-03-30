@@ -35,6 +35,7 @@ public class TestSorting
         TestsSorting(sorter, new int[] {4, 2, 3, 1});
         TestsSorting(sorter, new int[] {4, -2, 3, -1});
         TestsSorting(sorter, new int[] {-2, -1, 3, 4});
+        TestsSorting(sorter, new int[] {int.MaxValue, -1, int.MinValue, 4, -89, 0});
     }
 
     private void TestsSorting(ISort sorter, int[] givenSeq)

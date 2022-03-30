@@ -5,19 +5,17 @@ public class SelectionSort : ISort
     public void Sort(int[] toSort)
     {
         int length = toSort.Length - 1;
-        for (int outer_i = 0; outer_i < length; outer_i++)
+        for (int outerI = 0; outerI < length; outerI++)
         {
-            int min_i = outer_i;
-            int inner_i = outer_i + 1;
-            for (; inner_i < toSort.Length; inner_i++)
+            int minI = outerI;
+            int innerI = outerI + 1;
+            
+            for (; innerI < toSort.Length; innerI++)
             {
-                if (toSort[inner_i] < toSort[min_i])
-                {
-                    min_i = inner_i;
-                }
+                minI = toSort[innerI] < toSort[minI] ? innerI : minI;
             }
             
-            SequenceUtils.Swap(toSort, min_i, outer_i);
+            SequenceUtils.Swap(toSort, minI, outerI);
         }
     }
 }
