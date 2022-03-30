@@ -7,6 +7,13 @@ namespace algoDat_impl_test;
 
 public class TestSorting
 {
+    
+    [Fact]
+    public void Test_SelectionSort()
+    {
+        ISort insertionSort = new SelectionSort();
+        TestsSortingCases(insertionSort);
+    }
     [Fact]
     public void Test_InsertionSort()
     {
