@@ -27,6 +27,14 @@ public class TestSorting
         ISort bubbleSort = new BubbleSort();
         TestsSortingCases(bubbleSort);
     }
+    
+    [Fact]
+    public void Test_MergeSort()
+    {
+        ISort mergeSort = new MergeSort();
+        TestsSortingCases(mergeSort);
+    }
+
 
     private void TestsSortingCases(ISort sorter)
     {

@@ -6,13 +6,14 @@ class Program
 {
     static void Main()
     {
-        var array = new int[] {1, 2, 3};
-
-        SequenceUtils.InPlaceReverse(array);
-
-        for (int i = 0; i < array.Length; i++)
+        var toSort = new int[] { 2, 5, -8, -2 };
+        
+        new MergeSort().Sort(toSort);
+        foreach (var number in toSort)
         {
-            Console.Write($"{array[i]}");
+            Console.Write($"{number} ");
         }
+        
+        Console.WriteLine();
     }
 }

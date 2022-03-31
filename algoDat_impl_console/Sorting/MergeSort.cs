@@ -4,10 +4,30 @@ public class MergeSort : ISort
 {
     public void Sort(int[] toSort)
     {
-        throw new NotImplementedException();
+        int[] sorted = GetSorted(toSort);
+
+        for (int sortedI = 0; sortedI < sorted.Length; sortedI++)
+        {
+            toSort[sortedI] = sorted[sortedI];
+        }
+        
+        static int[] GetSorted(int[] toDivide)
+        {
+            if (toDivide.Length < 2)
+            {
+                return toDivide;
+            }
+
+            int length = toDivide.Length; 
+            int half = (length / 2);
+            int[] left = GetSorted(toDivide[0..half]);
+            int[] right = GetSorted(toDivide[half..length]);
+            
+            return MergeSorted(left, right);
+        }
     }
 
-    public static int[]? MergeSorted(int[] left, int[] right)
+    public static int[] MergeSorted(int[] left, int[] right)
     {
         var leftI = 0;
         var rightI = 0;
@@ -44,11 +64,9 @@ public class MergeSort : ISort
                     result[resultI] = right[rightI++];
                     rightIsNotEmpty = rightI < right.Length;
                 }
-
             }
         }
         
-
         return result;
     }
 }
