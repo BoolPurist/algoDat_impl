@@ -1,6 +1,7 @@
 using System;
 using algoDat_impl_console;
 using System.Collections.Generic;
+using algoDat_impl_console.Sorting;
 using Xunit;
 
 
@@ -35,6 +36,47 @@ public class TestSequenceUtilis
             Assert.Equal(expected, given);
         }
     }
+
+    [Theory]
+    [MemberData(nameof(TestCasesMergeSorted))]
+    public static void TestMergeSorted(int[] left, int[] right, int[] expected)
+    {
+        var result = MergeSort.MergeSorted(left, right);
+        
+        Assert.Equal(expected, result);
+
+    }
+
+    public static TheoryData<int[], int[], int[]> TestCasesMergeSorted
+        => new()
+        {
+            {
+                new int[] { 1, 2, 5 }, 
+                new int[] { -2, -1, 5 }, 
+                new int[] { -2, -1, 1, 2, 5, 5 }
+            },
+            {
+                new int[] { 1, 1, 5 },
+                new int[] { 2, 4, },
+                new int[] { 1, 1, 2, 4, 5 }
+            },
+            {
+                new int[] { int.MinValue, -899, 789  },
+                new int[] { },
+                new int[] { int.MinValue, -899, 789 }
+            },
+            {
+                new int[] { },
+                new int[] { int.MinValue, -899, 789, 2, Int32.MaxValue },
+                new int[] { int.MinValue, -899, 789, 2, Int32.MaxValue }
+            },
+            {
+                new int[] { },
+                new int[] { },
+                new int[] { }
+            }
+            
+        };
 
     private record TestCaseReverse(int[] given);
 
