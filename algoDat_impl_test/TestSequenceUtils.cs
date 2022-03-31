@@ -31,7 +31,7 @@ public class TestSequenceUtilis
             Array.Copy(given, expected, given.Length);
             Array.Reverse(expected);
         
-            SequenceUtils.InPlaceReverse(given);
+            SequenceUtils.Reverse(given);
         
             Assert.Equal(expected, given);
         }
@@ -45,6 +45,14 @@ public class TestSequenceUtilis
         
         Assert.Equal(expected, result);
 
+    }
+
+    [Theory]
+    [MemberData(nameof(TestCasePrintSequence))]
+    public static void TestPrintSequence(int[] given, string expected)
+    {
+        string actual = SequenceUtils.PrintSequence(given);
+        Assert.Equal(expected, actual);
     }
 
     public static TheoryData<int[], int[], int[]> TestCasesMergeSorted
@@ -76,6 +84,19 @@ public class TestSequenceUtilis
                 new int[] { }
             }
             
+        };
+
+    public static TheoryData<int[], string> TestCasePrintSequence
+        => new()
+        {
+            {
+                new int[] { 2, 5, 5}, 
+                "[ 2 5 5 ]"
+            },
+            {
+                new int[] { }, 
+                "[ ]"
+            }
         };
 
     private record TestCaseReverse(int[] given);
