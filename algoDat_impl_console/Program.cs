@@ -1,4 +1,5 @@
 ﻿using algoDat_impl_console.Sorting;
+using algoDat_impl_console.Benmark;
 
 namespace algoDat_impl_console;
 
@@ -6,15 +7,11 @@ class Program
 {
     static void Main()
     {
-        string passed = Benchmark.GetMeasureTimeStampFrom(() =>
+        var toSort = new RandomIntArrayGenerator(0, 10, int.MaxValue / 10).Generate();
+        string passed = Benchmark.GetMeasureTimeStampFrom(
+            () =>
         {
-            var toSort = new int[] {2, 5, -8, -2, 2, 5, -8, -2, 2, 5, -8, -2, 2, 5, -8, -2, 2, 5, -8, -2, 2, 5, -8, -2};
-
             new MergeSort().Sort(toSort);
-            foreach (var number in toSort)
-            {
-                Console.Write($"{number} ");
-            }
 
             Console.WriteLine();
         });

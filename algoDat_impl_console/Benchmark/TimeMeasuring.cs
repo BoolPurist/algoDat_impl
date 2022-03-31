@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace algoDat_impl_console;
+namespace algoDat_impl_console.Benmark;
 
 public class Benchmark
 {
