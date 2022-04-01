@@ -10,4 +10,7 @@ public static class Comparing
     public static bool IsGreaterThan<T>(T left, T right) where T : IComparable<T>
         => left.CompareTo(right) > 0;
 
+    public static bool IsEqual<T>(T left, T right) where T : IComparable<T>
+        => left.CompareTo(right) == 0;
+
 }
