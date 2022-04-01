@@ -3,7 +3,7 @@ using algoDat_impl_console;
 using algoDat_impl_console.Extension;
 using Xunit;
 
-namespace algoDat_impl_test;
+namespace algoDat_impl_test.Extension;
 
 public class TestSequenceExtensions
 {
