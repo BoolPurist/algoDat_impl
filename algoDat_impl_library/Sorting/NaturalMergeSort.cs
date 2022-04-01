@@ -37,9 +37,9 @@ public class NaturalMergeSort : ISort
 
         // Combine all sorted section
         {
-            bool moreThan2Left = sortedSequences.Count > 1;
+            
 
-            if (!moreThan2Left)
+            if (sortedSequences.Count < 2)
             {
                 // Sequence is already sorted.
                 return;
@@ -47,6 +47,7 @@ public class NaturalMergeSort : ISort
 
             IList<T> previousSortedSection = sortedSequences.Pop();
         
+            bool moreThan2Left = sortedSequences.Count > 1;
             while (moreThan2Left)
             {
                 IList<T> currentSortedSection = sortedSequences.Pop();

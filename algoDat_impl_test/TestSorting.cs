@@ -50,13 +50,14 @@ public class TestSorting
     
     private void TestsSortingCases(ISort sorter)
     {
-        TestsSorting(sorter, new int[] {2, 6, 8});
-        TestsSorting(sorter, new int[] {89, 8, 2});
-        TestsSorting(sorter, new int[] {1});
-        TestsSorting(sorter, new int[] {8, 5, 2});
-        TestsSorting(sorter, new int[] {4, 2, 3, 1});
-        TestsSorting(sorter, new int[] {4, -2, 3, -1});
-        TestsSorting(sorter, new int[] {-2, -1, 3, 4});
+        TestsSorting(sorter, new int[] { 2, 6, 8 });
+        TestsSorting(sorter, new int[] { 89, 8, 2 });
+        TestsSorting(sorter, new int[] { 1 });
+        TestsSorting(sorter, new int[] { 8, 5, 2 });
+        TestsSorting(sorter, new int[] { 4, 2, 3, 1 });
+        TestsSorting(sorter, new int[] { 4, -2, 3, -1 });
+        TestsSorting(sorter, new int[] {-2, -1, 3, 4} );
+        TestsSorting(sorter, new int[] { 6, 5, 5, 6 });
         TestsSorting(sorter, new int[] {int.MaxValue, -1, int.MinValue, 4, -89, 0});
     }
 

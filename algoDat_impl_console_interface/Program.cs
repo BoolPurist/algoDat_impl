@@ -8,7 +8,7 @@ public static class Program
 {
     private static void Main()
     {
-        var sequence = new int[] {2, 4, 1, 3, 5, 1, 5};
+        var sequence = new int[] {6, 5, 5, 6};
         new NaturalMergeSort().Sort( sequence );
         Console.WriteLine(SequenceUtils.SequenceToString(sequence));
     }
