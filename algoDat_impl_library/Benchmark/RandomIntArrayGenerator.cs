@@ -1,4 +1,4 @@
-namespace algoDat_impl_console.Benmark;
+namespace algoDat_impl_library.Benchmark;
 
 public class RandomIntArrayGenerator : IArrayGenerator<int>
 {

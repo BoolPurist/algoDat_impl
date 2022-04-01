@@ -22,7 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\algoDat_impl_console\algoDat_impl_console.csproj" />
+      <ProjectReference Include="..\algoDat_impl_library\algoDat_impl_library.csproj" />
     </ItemGroup>
+    
 
 </Project>

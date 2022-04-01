@@ -1,4 +1,4 @@
-namespace algoDat_impl_console.Searching;
+namespace algoDat_impl_library.Searching;
 
 public interface ISearch
 {

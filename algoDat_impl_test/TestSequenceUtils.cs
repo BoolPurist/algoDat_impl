@@ -1,7 +1,7 @@
 using System;
-using algoDat_impl_console;
 using System.Collections.Generic;
-using algoDat_impl_console.Sorting;
+using algoDat_impl_library;
+using algoDat_impl_library.Sorting;
 using Xunit;
 
 

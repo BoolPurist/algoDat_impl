@@ -1,4 +1,4 @@
-namespace algoDat_impl_console.Extension;
+namespace algoDat_impl_library.Extension;
 
 public static class SequenceExtensions
 {

@@ -1,6 +1,6 @@
-using algoDat_impl_console.Searching;
+using algoDat_impl_library.Searching;
 
-namespace algoDat_impl_console.Extension;
+namespace algoDat_impl_library.Extension;
 
 public static class SearchExtension
 {

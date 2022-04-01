@@ -5,6 +5,8 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <AssemblyName>algoDat_impl_library</AssemblyName>
+        <RootNamespace>algoDat_impl_library</RootNamespace>
     </PropertyGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-namespace algoDat_impl_console.Sorting;
+namespace algoDat_impl_library.Sorting;
 
 public interface ISort
 {

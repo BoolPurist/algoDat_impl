@@ -1,6 +1,7 @@
-using algoDat_impl_console.Extension;
+using algoDat_impl_library.Extension;
 
-namespace algoDat_impl_console.Sorting;
+
+namespace algoDat_impl_library.Sorting;
 
 public class SelectionSort : ISort
 {

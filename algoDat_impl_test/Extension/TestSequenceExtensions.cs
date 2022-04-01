@@ -1,6 +1,5 @@
 using System.Linq;
-using algoDat_impl_console;
-using algoDat_impl_console.Extension;
+using algoDat_impl_library.Extension;
 using Xunit;
 
 namespace algoDat_impl_test.Extension;

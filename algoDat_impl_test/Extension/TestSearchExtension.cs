@@ -1,5 +1,5 @@
-using algoDat_impl_console.Extension;
-using algoDat_impl_console.Searching;
+using algoDat_impl_library.Extension;
+using algoDat_impl_library.Searching;
 using Xunit;
 using Moq;
 
@@ -13,7 +13,7 @@ public class TestSearchExtension
     public void TestCheckFor(int[] givenInput, int foundIndex, bool expected)
     {
         var fakeSearcher = new Mock<ISearch>();
-        var faker = fakeSearcher
+        fakeSearcher
             .Setup(faker => faker.SearchFor(It.IsAny<int[]>(), It.IsAny<int>()))
             .Returns(foundIndex);
         bool actual = fakeSearcher.Object.CheckFor(givenInput, foundIndex);

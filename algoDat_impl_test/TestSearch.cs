@@ -1,5 +1,4 @@
-using algoDat_impl_console.Searching;
-using NuGet.Frameworks;
+using algoDat_impl_library.Searching;
 using Xunit;
 
 namespace algoDat_impl_test;

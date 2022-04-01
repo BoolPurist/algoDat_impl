@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace algoDat_impl_console;
+namespace algoDat_impl_library;
 
 public static class SequenceUtils
 {
