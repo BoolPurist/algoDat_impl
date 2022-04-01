@@ -10,6 +10,8 @@ public static class SequenceUtils
         (array[left], array[right]) = (array[right], array[left]);
     }
 
+
+
     public static string PrintSequence(int[] sequence)
     {
         var builder = new StringBuilder();

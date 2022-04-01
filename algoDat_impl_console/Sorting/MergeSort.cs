@@ -20,8 +20,8 @@ public class MergeSort : ISort
 
             int length = toDivide.Count; 
             int half = (length / 2);
-            IList<T> left = GetSorted(toDivide.Skip(0).Take(half).ToArray());
-            IList<T> right = GetSorted(toDivide.Skip(half).Take(length).ToArray());
+            IList<T> left = GetSorted(toDivide.Splice(0, half).ToArray());
+            IList<T> right = GetSorted(toDivide.Splice(half, length).ToArray());
             
             return MergeSorted(left, right);
         }
