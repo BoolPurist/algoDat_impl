@@ -10,6 +10,11 @@ public class TestSearch
     public static void TestLinearSearch(int[] givenSequence, int toSearch, int expectedFoundIndex)
         => TestOneSearch(new LinearSearch(), givenSequence, toSearch, expectedFoundIndex);
     
+    [Theory]
+    [MemberData(nameof(TestCasesBinarySearch))]
+    public static void TestBinarySearch(int[] givenSequence, int toSearch, int expectedFoundIndex)
+        => TestOneSearch(new BinarySearch(), givenSequence, toSearch, expectedFoundIndex);
+    
     private static void TestOneSearch(ISearch searcher, int[] givenSequence, int toSearch, int expectedFoundIndex)
     {
         int actualFoundIndex = searcher.SearchFor(givenSequence, toSearch);
@@ -71,5 +76,123 @@ public class TestSearch
                 1,
                 1
             }
+        };
+
+    public static TheoryData<int[], int, int> TestCasesBinarySearch
+        => new()
+        {
+            {
+                // givenSequence
+                new [] { 1 },
+                // toSearch
+                1,
+                // expectedFoundIndex
+                0
+            },
+            {
+                // givenSequence
+                new int[] {  },
+                // toSearch
+                -1,
+                // expectedFoundIndex
+                -1
+            },
+            {
+                // givenSequence
+                new [] { 1 },
+                // toSearch
+                -10,
+                // expectedFoundIndex
+                -1
+            },
+            {
+                // givenSequence
+                new [] { 1, 2, 3 },
+                // toSearch
+                2,
+                // expectedFoundIndex
+                1
+            },
+            {
+                // givenSequence
+                new [] { 1, 2, 3 },
+                // toSearch
+                1,
+                // expectedFoundIndex
+                0
+            },
+            {
+                // givenSequence
+                new [] { 1, 2, 3 },
+                // toSearch
+                3,
+                // expectedFoundIndex
+                2
+            },
+            {
+                // givenSequence
+                new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                // toSearch
+                3,
+                // expectedFoundIndex
+                2
+            },
+            {
+                // givenSequence
+                new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                // toSearch
+                9,
+                // expectedFoundIndex
+                8
+            },
+            {
+                // givenSequence
+                new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                // toSearch
+                8,
+                // expectedFoundIndex
+                7
+            },
+            {
+                // givenSequence
+                new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                // toSearch
+                6,
+                // expectedFoundIndex
+                5
+            },
+            {
+                // givenSequence
+                new [] { 10, 20, 30, 50, 60, 80, 110, 130, 140, 170  },
+                // toSearch
+                175,
+                // expectedFoundIndex
+                -1
+            },
+            {
+                // givenSequence
+                new [] { 10, 20, 30, 50, 60, 80, 110, 130, 140, 170 },
+                // toSearch
+                110,
+                // expectedFoundIndex
+                6
+            },
+            {
+                // givenSequence
+                new [] { 10, 20, 30, 50, 60, 80, 110, 130, 140, 170 },
+                // toSearch
+                170,
+                // expectedFoundIndex
+                9
+            },
+            {
+                // givenSequence
+                new [] { 10, 20, 30, 50, 60, 80, 110, 130, 140, 170 },
+                // toSearch
+                10,
+                // expectedFoundIndex
+                0
+            }
+            
         };
 }
