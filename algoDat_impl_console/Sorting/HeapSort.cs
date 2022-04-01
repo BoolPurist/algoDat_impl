@@ -1,5 +1,7 @@
 
 
+using algoDat_impl_console.Extension;
+
 namespace algoDat_impl_console.Sorting;
 
 public class HeapSort : ISort

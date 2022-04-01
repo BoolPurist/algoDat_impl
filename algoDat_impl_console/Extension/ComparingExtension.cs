@@ -1,6 +1,6 @@
 using System.Xml.Xsl;
 
-namespace algoDat_impl_console;
+namespace algoDat_impl_console.Extension;
 
 public static class Comparing
 {

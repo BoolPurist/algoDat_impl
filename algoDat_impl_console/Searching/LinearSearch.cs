@@ -1,3 +1,5 @@
+using algoDat_impl_console.Extension;
+
 namespace algoDat_impl_console.Searching;
 
 public class LinearSearch : ISearch
