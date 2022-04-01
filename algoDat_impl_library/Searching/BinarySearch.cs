@@ -20,7 +20,8 @@ public class BinarySearch : ISearch
 
         void NextBinaryDive(int startIndex, int endIndex)
         {
-            int offset = ((endIndex + 1) - startIndex) / 2;
+            int sequenceLength = endIndex + 1; 
+            int offset = (sequenceLength - startIndex) / 2;
             int middle = startIndex + offset;
             Debug.Assert(
                     middle >= 0,

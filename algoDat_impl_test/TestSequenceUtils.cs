@@ -41,7 +41,7 @@ public class TestSequenceUtilis
     [MemberData(nameof(TestCasesMergeSorted))]
     public static void TestMergeSorted(int[] left, int[] right, int[] expected)
     {
-        var result = MergeSort.MergeSorted(left, right);
+        var result = MergeSort.CombineSorted(left, right);
         
         Assert.Equal(expected, result);
 
@@ -51,7 +51,7 @@ public class TestSequenceUtilis
     [MemberData(nameof(TestCasePrintSequence))]
     public static void TestPrintSequence(int[] given, string expected)
     {
-        string actual = SequenceUtils.PrintSequence(given);
+        string actual = SequenceUtils.SequenceToString(given);
         Assert.Equal(expected, actual);
     }
 

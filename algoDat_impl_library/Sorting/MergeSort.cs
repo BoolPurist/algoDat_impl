@@ -6,45 +6,62 @@ public class MergeSort : ISort
 {
     public void Sort<T>(IList<T> toSort) where T : IComparable<T>
     {
-        IList<T> sorted = GetSorted(toSort);
-
-        for (int sortedI = 0; sortedI < sorted.Count; sortedI++)
-        {
-            toSort[sortedI] = sorted[sortedI];
-        }
+        RecursiveMergeSort(toSort, true);
         
-        static IList<T> GetSorted(IList<T> toDivide)
+        IList<T> RecursiveMergeSort(IList<T> toDivide, bool rootCall = false)
         {
             if (toDivide.Count < 2)
             {
                 return toDivide;
             }
-
+            
             int length = toDivide.Count; 
             int half = (length / 2);
-            IList<T> left = GetSorted(toDivide.Splice(0, half).ToArray());
-            IList<T> right = GetSorted(toDivide.Splice(half, length).ToArray());
+                
+            IList<T> left = RecursiveMergeSort(toDivide.Splice(0, half).ToArray());
+            IList<T> right = RecursiveMergeSort(toDivide.Splice(half, length).ToArray());
             
-            return MergeSorted(left, right);
+            if (rootCall)
+            {
+                CombineSortedInto(left, right, toSort);
+                return toSort;
+            }
+            else
+            {
+                return MergeSort.CombineSorted(left, right);
+            }
+            
         }
+        
     }
 
-    public static T[] MergeSorted<T>(IList<T> left, IList<T> right) where T : IComparable<T>
+    /// <summary>
+    /// Last 2 sorted section are merged into the initial unsorted sequence to prevent
+    /// Otherwise one more copy from sorted version to the unsorted version would be needed.  
+    /// </summary>
+    /// <param name="left"></param>
+    /// <param name="right"></param>
+    /// <param name="dest"></param>
+    /// <typeparam name="T"></typeparam>
+    public static void CombineSortedInto<T>(
+        IList<T> left, 
+        IList<T> right,
+        IList<T> dest
+        ) where T : IComparable<T>
     {
         var leftI = 0;
         var rightI = 0;
-        var result = new T[left.Count + right.Count];
 
         {
             bool leftIsNotEmpty = leftI < left.Count;
             bool rightIsNotEmpty = rightI < right.Count;
             
-            for (int resultI = 0; ( leftIsNotEmpty || rightIsNotEmpty ); resultI++)
+            for (int destI = 0; ( leftIsNotEmpty || rightIsNotEmpty ); destI++)
             {
                 if ( leftIsNotEmpty && rightIsNotEmpty )
                 {
                     bool leftComesIn = left[leftI].IsLessThan(right[rightI]); 
-                    result[resultI] = leftComesIn ? left[leftI++] : right[rightI++];
+                    dest[destI] = leftComesIn ? left[leftI++] : right[rightI++];
 
                     if (leftComesIn)
                     {
@@ -57,19 +74,27 @@ public class MergeSort : ISort
                 }
                 else if ( leftIsNotEmpty )
                 {
-                    result[resultI] = left[leftI++];
+                    dest[destI] = left[leftI++];
                     leftIsNotEmpty = leftI < left.Count;
                 }
                 else
                 {
                     // rightIsNotEmpty
-                    result[resultI] = right[rightI++];
+                    dest[destI] = right[rightI++];
                     rightIsNotEmpty = rightI < right.Count;
                 }
             }
         }
+    }
+
+    public static IList<T> CombineSorted<T>(IList<T> left, IList<T> right) where T : IComparable<T>
+    {
+        var result = new T[left.Count + right.Count];
+
+        CombineSortedInto(left, right, result);
         
         return result;
     }
 
+    
 }

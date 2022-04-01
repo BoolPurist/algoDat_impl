@@ -8,6 +8,13 @@ public class TestSorting
 {
     
     [Fact]
+    public void Test_NaturalMergeSort()
+    {
+        ISort insertionSort = new NaturalMergeSort();
+        TestsSortingCases(insertionSort);
+    }
+    
+    [Fact]
     public void Test_SelectionSort()
     {
         ISort insertionSort = new SelectionSort();
@@ -44,6 +51,8 @@ public class TestSorting
     private void TestsSortingCases(ISort sorter)
     {
         TestsSorting(sorter, new int[] {2, 6, 8});
+        TestsSorting(sorter, new int[] {89, 8, 2});
+        TestsSorting(sorter, new int[] {1});
         TestsSorting(sorter, new int[] {8, 5, 2});
         TestsSorting(sorter, new int[] {4, 2, 3, 1});
         TestsSorting(sorter, new int[] {4, -2, 3, -1});
