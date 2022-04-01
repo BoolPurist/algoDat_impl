@@ -2,7 +2,7 @@ namespace algoDat_impl_console.Sorting;
 
 public class BubbleSort : ISort
 {
-    public void Sort(int[] toSort)
+    public void Sort<T>(T[] toSort) where T : IComparable<T>
     {
         bool isSorted = false;
         while (!isSorted)
@@ -13,7 +13,8 @@ public class BubbleSort : ISort
             for (int i = 0; i < length; i++)
             {
                 int nextIndex = i + 1;
-                if (toSort[i] > toSort[nextIndex])
+                
+                if ( SortingUtils.IsGreaterThan(toSort[i], toSort[nextIndex]) )
                 {
                     SequenceUtils.Swap(toSort, i, nextIndex);
                     isSorted = false;

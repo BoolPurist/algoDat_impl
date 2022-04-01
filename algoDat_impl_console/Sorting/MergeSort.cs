@@ -2,16 +2,16 @@ namespace algoDat_impl_console.Sorting;
 
 public class MergeSort : ISort
 {
-    public void Sort(int[] toSort)
+    public void Sort<T>(T[] toSort) where T : IComparable<T>
     {
-        int[] sorted = GetSorted(toSort);
+        T[] sorted = GetSorted(toSort);
 
         for (int sortedI = 0; sortedI < sorted.Length; sortedI++)
         {
             toSort[sortedI] = sorted[sortedI];
         }
         
-        static int[] GetSorted(int[] toDivide)
+        static T[] GetSorted(T[] toDivide)
         {
             if (toDivide.Length < 2)
             {
@@ -20,18 +20,18 @@ public class MergeSort : ISort
 
             int length = toDivide.Length; 
             int half = (length / 2);
-            int[] left = GetSorted(toDivide[0..half]);
-            int[] right = GetSorted(toDivide[half..length]);
+            T[] left = GetSorted(toDivide[0..half]);
+            T[] right = GetSorted(toDivide[half..length]);
             
             return MergeSorted(left, right);
         }
     }
 
-    public static int[] MergeSorted(int[] left, int[] right)
+    public static T[] MergeSorted<T>(T[] left, T[] right) where T : IComparable<T>
     {
         var leftI = 0;
         var rightI = 0;
-        var result = new int[left.Length + right.Length];
+        var result = new T[left.Length + right.Length];
 
         {
             bool leftIsNotEmpty = leftI < left.Length;
@@ -41,7 +41,7 @@ public class MergeSort : ISort
             {
                 if ( leftIsNotEmpty && rightIsNotEmpty )
                 {
-                    bool leftComesIn = left[leftI] < right[rightI]; 
+                    bool leftComesIn = SortingUtils.IsLessThan(left[leftI], right[rightI]); 
                     result[resultI] = leftComesIn ? left[leftI++] : right[rightI++];
 
                     if (leftComesIn)
@@ -69,4 +69,5 @@ public class MergeSort : ISort
         
         return result;
     }
+
 }

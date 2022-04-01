@@ -4,7 +4,7 @@ namespace algoDat_impl_console.Sorting;
 
 public class HeapSort : ISort
 {
-    public void Sort(int[] toSort)
+    public void Sort<T>(T[] toSort) where T : IComparable<T>
     {
         BuildMaxHeap(toSort);
         for (int downI = toSort.Length; downI > 1;)
@@ -14,7 +14,7 @@ public class HeapSort : ISort
         }
     }
     
-    private static void MaxHeapifyAt(int[] toHeapify, int index, int heapSize)
+    private static void MaxHeapifyAt<T>(T[] toHeapify, int index, int heapSize) where T : IComparable<T>
     {
 
         int factor = index * 2;
@@ -24,11 +24,11 @@ public class HeapSort : ISort
         int largestI = index;
 
         largestI = left < heapSize && 
-                   toHeapify[largestI] < toHeapify[left] 
+                   SortingUtils.IsLessThan(toHeapify[largestI], toHeapify[left] )
             ? left : largestI;
             
         largestI = right < heapSize && 
-                   toHeapify[largestI] < toHeapify[right] 
+                   SortingUtils.IsLessThan(toHeapify[largestI], toHeapify[right] )
             ? right : largestI;
 
         bool wasHeapified = largestI != index;
@@ -40,7 +40,7 @@ public class HeapSort : ISort
     }
 
 
-    private static void BuildMaxHeap(int[] toHeapify)
+    private static void BuildMaxHeap<T>(T[] toHeapify) where T : IComparable<T>
     {
         for (int i = (toHeapify.Length / 2 ) - 1; i > -1; i--)
         {
