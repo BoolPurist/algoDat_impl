@@ -34,8 +34,14 @@ public class TestSorting
         ISort mergeSort = new MergeSort();
         TestsSortingCases(mergeSort);
     }
-
-
+    
+    [Fact]
+    public void Test_HeapSort()
+    {
+        ISort mergeSort = new HeapSort();
+        TestsSortingCases(mergeSort);
+    }
+    
     private void TestsSortingCases(ISort sorter)
     {
         TestsSorting(sorter, new int[] {2, 6, 8});

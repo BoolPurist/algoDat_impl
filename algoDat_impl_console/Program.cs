@@ -7,15 +7,10 @@ class Program
 {
     static void Main()
     {
-        var toSort = new RandomIntArrayGenerator(0, 10, int.MaxValue / 10).Generate();
-        string passed = Benchmark.GetMeasureTimeStampFrom(
-            () =>
-        {
-            new MergeSort().Sort(toSort);
+        var input = new[] { 81, 89, 9, 11, 14, 76, 54, 22 };
 
-            Console.WriteLine();
-        });
-        
-        Console.WriteLine(passed);
+        new HeapSort().Sort(input);
+        Console.WriteLine(SequenceUtils.PrintSequence(input));
+
     }
 }
