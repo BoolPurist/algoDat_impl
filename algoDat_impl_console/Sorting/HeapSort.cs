@@ -1,4 +1,4 @@
-using System.Runtime.InteropServices;
+
 
 namespace algoDat_impl_console.Sorting;
 
@@ -24,11 +24,11 @@ public class HeapSort : ISort
         int largestI = index;
 
         largestI = left < heapSize && 
-                   Comparing.IsLessThan(toHeapify[largestI], toHeapify[left] )
+                   toHeapify[largestI].IsLessThan(toHeapify[left] )
             ? left : largestI;
             
         largestI = right < heapSize && 
-                   Comparing.IsLessThan(toHeapify[largestI], toHeapify[right] )
+                   toHeapify[largestI].IsLessThan(toHeapify[right] )
             ? right : largestI;
 
         bool wasHeapified = largestI != index;

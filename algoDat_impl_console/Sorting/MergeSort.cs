@@ -41,7 +41,7 @@ public class MergeSort : ISort
             {
                 if ( leftIsNotEmpty && rightIsNotEmpty )
                 {
-                    bool leftComesIn = Comparing.IsLessThan(left[leftI], right[rightI]); 
+                    bool leftComesIn = left[leftI].IsLessThan(right[rightI]); 
                     result[resultI] = leftComesIn ? left[leftI++] : right[rightI++];
 
                     if (leftComesIn)

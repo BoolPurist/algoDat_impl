@@ -14,7 +14,7 @@ public class BubbleSort : ISort
             {
                 int nextIndex = i + 1;
                 
-                if ( Comparing.IsGreaterThan(toSort[i], toSort[nextIndex]) )
+                if ( toSort[i].IsGreaterThan(toSort[nextIndex]) )
                 {
                     SequenceUtils.Swap(toSort, i, nextIndex);
                     isSorted = false;

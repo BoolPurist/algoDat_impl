@@ -7,7 +7,7 @@ public class LinearSearch : ISearch
         for (int index = 0; index < toSearchThrough.Count; index++)
         {
             T inspectedValue = toSearchThrough[index];
-            if (Comparing.IsEqual(searchFor, inspectedValue))
+            if (searchFor.IsEqual(inspectedValue))
             {
                 return index;
             }

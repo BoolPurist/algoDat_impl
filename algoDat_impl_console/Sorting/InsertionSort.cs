@@ -8,7 +8,7 @@ public class InsertionSort : ISort
         {
             T currentKey = toSort[outerI];
             int innerI = outerI - 1;
-            while (innerI > -1 && Comparing.IsGreaterThan(toSort[innerI], currentKey))
+            while (innerI > -1 && toSort[innerI].IsGreaterThan(currentKey))
             {
                 int whereToMove = innerI + 1;
                 toSort[whereToMove] = toSort[innerI];

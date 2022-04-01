@@ -13,7 +13,7 @@ public class SelectionSort : ISort
             
             for (; innerI < toSort.Count; innerI++)
             {
-                minI = Comparing.IsLessThan(toSort[innerI], toSort[minI]) ? innerI : minI;
+                minI = toSort[innerI].IsLessThan(toSort[minI]) ? innerI : minI;
             }
             
             SequenceUtils.Swap(toSort, minI, outerI);
