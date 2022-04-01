@@ -6,7 +6,7 @@ namespace algoDat_impl_test;
 public class TestSearch
 {
     [Theory]
-    [MemberData(nameof(TestCasesSearch))]
+    [MemberData(nameof(TestCasesLinearSearch))]
     public static void TestLinearSearch(int[] givenSequence, int toSearch, int expectedFoundIndex)
         => TestOneSearch(new LinearSearch(), givenSequence, toSearch, expectedFoundIndex);
     
@@ -16,7 +16,7 @@ public class TestSearch
         Assert.Equal(expectedFoundIndex, actualFoundIndex);
     }
 
-    public static TheoryData<int[], int, int> TestCasesSearch
+    public static TheoryData<int[], int, int> TestCasesLinearSearch
         => new()
         {
             {
@@ -36,9 +36,39 @@ public class TestSearch
                 -1
             },
             {
-                
                 new [] { 1, 2, 3 },
                 2,
+                1
+            },
+            {
+                new [] { 10, 20, 80, 30, 60, 50, 110, 100, 130, 170 },
+                110,
+                6
+            },
+            {
+                new [] {10, 20, 80, 30, 60, 50, 110, 100, 130, 170},
+                175,
+                -1
+                
+            },
+            {
+                new int[] { },
+                78,
+                -1
+            },
+            {
+                new int[] { -798 },
+                -798,
+                0
+            },
+            {
+                new int[] { -798, 789, 456 },
+                456,
+                2
+            },
+            {
+                new int[] { -798, 1, 1, 456 },
+                1,
                 1
             }
         };
