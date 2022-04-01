@@ -2,21 +2,23 @@ namespace algoDat_impl_console.Sorting;
 
 public class SelectionSort : ISort
 {
-    public void Sort<T>(T[] toSort) where T : IComparable<T>
+    public void Sort<T>(IList<T> toSort) where T : IComparable<T>
     {
-        int length = toSort.Length - 1;
+        int length = toSort.Count - 1;
         
         for (int outerI = 0; outerI < length; outerI++)
         {
             int minI = outerI;
             int innerI = outerI + 1;
             
-            for (; innerI < toSort.Length; innerI++)
+            for (; innerI < toSort.Count; innerI++)
             {
-                minI = SortingUtils.IsLessThan(toSort[innerI], toSort[minI]) ? innerI : minI;
+                minI = Comparing.IsLessThan(toSort[innerI], toSort[minI]) ? innerI : minI;
             }
             
             SequenceUtils.Swap(toSort, minI, outerI);
         }
     }
+
+    
 }

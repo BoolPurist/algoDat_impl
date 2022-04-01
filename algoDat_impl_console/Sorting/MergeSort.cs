@@ -2,67 +2,67 @@ namespace algoDat_impl_console.Sorting;
 
 public class MergeSort : ISort
 {
-    public void Sort<T>(T[] toSort) where T : IComparable<T>
+    public void Sort<T>(IList<T> toSort) where T : IComparable<T>
     {
-        T[] sorted = GetSorted(toSort);
+        IList<T> sorted = GetSorted(toSort);
 
-        for (int sortedI = 0; sortedI < sorted.Length; sortedI++)
+        for (int sortedI = 0; sortedI < sorted.Count; sortedI++)
         {
             toSort[sortedI] = sorted[sortedI];
         }
         
-        static T[] GetSorted(T[] toDivide)
+        static IList<T> GetSorted(IList<T> toDivide)
         {
-            if (toDivide.Length < 2)
+            if (toDivide.Count < 2)
             {
                 return toDivide;
             }
 
-            int length = toDivide.Length; 
+            int length = toDivide.Count; 
             int half = (length / 2);
-            T[] left = GetSorted(toDivide[0..half]);
-            T[] right = GetSorted(toDivide[half..length]);
+            IList<T> left = GetSorted(toDivide.Skip(0).Take(half).ToArray());
+            IList<T> right = GetSorted(toDivide.Skip(half).Take(length).ToArray());
             
             return MergeSorted(left, right);
         }
     }
 
-    public static T[] MergeSorted<T>(T[] left, T[] right) where T : IComparable<T>
+    public static T[] MergeSorted<T>(IList<T> left, IList<T> right) where T : IComparable<T>
     {
         var leftI = 0;
         var rightI = 0;
-        var result = new T[left.Length + right.Length];
+        var result = new T[left.Count + right.Count];
 
         {
-            bool leftIsNotEmpty = leftI < left.Length;
-            bool rightIsNotEmpty = rightI < right.Length;
+            bool leftIsNotEmpty = leftI < left.Count;
+            bool rightIsNotEmpty = rightI < right.Count;
             
             for (int resultI = 0; ( leftIsNotEmpty || rightIsNotEmpty ); resultI++)
             {
                 if ( leftIsNotEmpty && rightIsNotEmpty )
                 {
-                    bool leftComesIn = SortingUtils.IsLessThan(left[leftI], right[rightI]); 
+                    bool leftComesIn = Comparing.IsLessThan(left[leftI], right[rightI]); 
                     result[resultI] = leftComesIn ? left[leftI++] : right[rightI++];
 
                     if (leftComesIn)
                     {
-                        leftIsNotEmpty = leftI < left.Length;
+                        leftIsNotEmpty = leftI < left.Count;
                     }
                     else
                     {
-                        rightIsNotEmpty = rightI < right.Length;
+                        rightIsNotEmpty = rightI < right.Count;
                     }
                 }
                 else if ( leftIsNotEmpty )
                 {
                     result[resultI] = left[leftI++];
-                    leftIsNotEmpty = leftI < left.Length;
+                    leftIsNotEmpty = leftI < left.Count;
                 }
                 else
                 {
                     // rightIsNotEmpty
                     result[resultI] = right[rightI++];
-                    rightIsNotEmpty = rightI < right.Length;
+                    rightIsNotEmpty = rightI < right.Count;
                 }
             }
         }

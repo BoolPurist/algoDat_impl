@@ -2,19 +2,20 @@ namespace algoDat_impl_console.Sorting;
 
 public class InsertionSort : ISort
 {
-    public void Sort<T>(T[] toSort) where T : IComparable<T>
+    public void Sort<T>(IList<T> toSort) where T : IComparable<T>
     {
-        for (int j = 1; j < toSort.Length; j++)
+        for (int outerI = 1; outerI < toSort.Count; outerI++)
         {
-            T currentKey = toSort[j];
-            int i = j - 1;
-            while (i > -1 && SortingUtils.IsGreaterThan(toSort[i], currentKey))
+            T currentKey = toSort[outerI];
+            int innerI = outerI - 1;
+            while (innerI > -1 && Comparing.IsGreaterThan(toSort[innerI], currentKey))
             {
-                toSort[i + 1] = toSort[i];
-                i = i - 1;
+                int whereToMove = innerI + 1;
+                toSort[whereToMove] = toSort[innerI];
+                innerI--;
             }
 
-            toSort[i + 1] = currentKey;
+            toSort[innerI + 1] = currentKey;
         }
     }
 }

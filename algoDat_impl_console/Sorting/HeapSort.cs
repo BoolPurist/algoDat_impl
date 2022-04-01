@@ -4,17 +4,17 @@ namespace algoDat_impl_console.Sorting;
 
 public class HeapSort : ISort
 {
-    public void Sort<T>(T[] toSort) where T : IComparable<T>
+    public void Sort<T>(IList<T> toSort) where T : IComparable<T>
     {
         BuildMaxHeap(toSort);
-        for (int downI = toSort.Length; downI > 1;)
+        for (int downI = toSort.Count; downI > 1;)
         {
             SequenceUtils.Swap(toSort, 0, --downI);
             MaxHeapifyAt(toSort, 0, downI);
         }
     }
     
-    private static void MaxHeapifyAt<T>(T[] toHeapify, int index, int heapSize) where T : IComparable<T>
+    private static void MaxHeapifyAt<T>(IList<T> toHeapify, int index, int heapSize) where T : IComparable<T>
     {
 
         int factor = index * 2;
@@ -24,11 +24,11 @@ public class HeapSort : ISort
         int largestI = index;
 
         largestI = left < heapSize && 
-                   SortingUtils.IsLessThan(toHeapify[largestI], toHeapify[left] )
+                   Comparing.IsLessThan(toHeapify[largestI], toHeapify[left] )
             ? left : largestI;
             
         largestI = right < heapSize && 
-                   SortingUtils.IsLessThan(toHeapify[largestI], toHeapify[right] )
+                   Comparing.IsLessThan(toHeapify[largestI], toHeapify[right] )
             ? right : largestI;
 
         bool wasHeapified = largestI != index;
@@ -40,11 +40,11 @@ public class HeapSort : ISort
     }
 
 
-    private static void BuildMaxHeap<T>(T[] toHeapify) where T : IComparable<T>
+    private static void BuildMaxHeap<T>(IList<T> toHeapify) where T : IComparable<T>
     {
-        for (int i = (toHeapify.Length / 2 ) - 1; i > -1; i--)
+        for (int i = (toHeapify.Count / 2 ) - 1; i > -1; i--)
         {
-            MaxHeapifyAt(toHeapify, i, toHeapify.Length);
+            MaxHeapifyAt(toHeapify, i, toHeapify.Count);
         }
     }
 }
