@@ -192,6 +192,30 @@ public class TestSearch
                 10,
                 // expectedFoundIndex
                 0
+            },
+            {
+                // givenSequence
+                new [] { 10, 10, 10, 10, 10 },
+                // toSearch
+                10,
+                // expectedFoundIndex
+                0
+            },
+            {
+                // givenSequence
+                new [] { 0, 10, 10, 20, 30 },
+                // toSearch
+                10,
+                // expectedFoundIndex
+                1
+            },
+            {
+                // givenSequence
+                new [] { 0, 5, 5, 10, 10, 20 },
+                // toSearch
+                10,
+                // expectedFoundIndex
+                3
             }
             
         };

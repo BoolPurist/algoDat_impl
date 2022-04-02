@@ -30,7 +30,26 @@ public class BinarySearch : ISearch
             
             if (toSearchThrough[middle].IsEqual(toSearchFor))
             {
-                foundIndex = middle;
+                
+                int nextLeft = middle - 1;
+                
+                // Covering the case of the found value being a duplicate in the sequence
+                // Ensures requirement of returning the index for the first value 
+                // equal to the value of toSearchFor
+                // Worst case is increased by (n / 2) for comparisons.
+                while (nextLeft > -1)
+                {
+                    if (toSearchThrough[nextLeft].IsLessThan(toSearchFor))
+                    {
+                        break;
+                    }
+                    nextLeft--;
+                }
+
+                // nextLeft can be -1 or the index just before the 1. found value equal 
+                // to toSearchFo. -1 means that the 0. element in the sequence is
+                // equal to the toSearchFor.
+                foundIndex = nextLeft + 1;
             }
             else if (offset == 0)
             {
