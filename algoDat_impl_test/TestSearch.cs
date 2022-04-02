@@ -75,6 +75,16 @@ public class TestSearch
                 new int[] { -798, 1, 1, 456 },
                 1,
                 1
+            },
+            {
+                new int[] { 1, 1, 6 },
+                1,
+                0
+            },
+            {
+                new int[] {0,3, 1, 1, 6 },
+                1,
+                2
             }
         };
 
