@@ -91,7 +91,7 @@ public class TestSequenceUtilis
         {
             {
                 new int[] { 2, 5, 5}, 
-                "[ 2 5 5 ]"
+                "[ 2, 5, 5 ]"
             },
             {
                 new int[] { }, 
