@@ -9,5 +9,8 @@ public static class Program
 {
     private static void Main()
     {
+        var array = new int[] { 2, 4 };
+        Console.WriteLine($"array.IsFixedSize: {array.IsFixedSize}");
+        Console.WriteLine($"array.IsReadOnly: {array.IsReadOnly}");
     }
 }
