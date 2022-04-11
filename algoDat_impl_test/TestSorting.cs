@@ -8,17 +8,24 @@ public class TestSorting
 {
     
     [Fact]
+    public void Test_QuickSort()
+    {
+        ISort quickSort = new QuickSort();
+        TestsSortingCases(quickSort);
+    }
+    
+    [Fact]
     public void Test_NaturalMergeSort()
     {
-        ISort insertionSort = new NaturalMergeSort();
-        TestsSortingCases(insertionSort);
+        ISort naturalMergeSort = new NaturalMergeSort();
+        TestsSortingCases(naturalMergeSort);
     }
     
     [Fact]
     public void Test_SelectionSort()
     {
-        ISort insertionSort = new SelectionSort();
-        TestsSortingCases(insertionSort);
+        ISort selectionSort = new SelectionSort();
+        TestsSortingCases(selectionSort);
     }
     [Fact]
     public void Test_InsertionSort()
