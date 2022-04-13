@@ -10,7 +10,6 @@ public static class Program
 {
     private static void Main()
     {
-        var testInput = new int[] {1, 2, 3, 1, 5};
-        new CountSort(5).Sort(testInput);
+        Console.WriteLine(NumberUtility.GetDigitAt(2147483647, 8));
     }
 }
