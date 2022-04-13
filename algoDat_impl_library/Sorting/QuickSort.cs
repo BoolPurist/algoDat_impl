@@ -13,10 +13,9 @@ public class QuickSort : ISort
 
         // Arranges the array in way so the element at the index (end)
         // is placed in a spot so that all other elements before are smaller
-        // and all other elements after are bigger
+        // and all other elements are bigger after the pivot elements.
         void ArrangeAllBeforeEnd(int start, int end)
         {
-            // pivot element is always at the end.
             if (end <= start) return;
 
             var higherBound = start;
@@ -24,6 +23,7 @@ public class QuickSort : ISort
 
             Debug.Assert(higherBound > -1, "Arranging goes outside array to the left.");
 
+            // pivot element is always at the end.
             for (; higherBound < end; higherBound++)
             {
                 if (toSort[higherBound].IsLessThan(toSort[end]))
@@ -39,14 +39,16 @@ public class QuickSort : ISort
             }
 
             // Pivot element at the end index is inserted at certain index. 
-            // After the insertion the all elements before the pivot element are smaller.
+            // After the insertion all elements before the pivot element are smaller.
             // Those elements are the left part from the pivot element.
-            // After the insertion the all elements after the pivot element are bigger.
+            // After the insertion all elements after the pivot element are bigger.
             // Those elements are the right part from the pivot element.
             lowerBound++;
             Debug.Assert(lowerBound <= end, "Arranging is leaving the array to the right");
             SequenceUtils.Swap(toSort, lowerBound, end);
 
+            // The pivot element will not be arranged anymore.
+            // Reason: All its predecessor are smaller and its successors are bigger.
             // Arrange elements from the left of the pivot element 
             ArrangeAllBeforeEnd(start, lowerBound - 1);
             // Arrange elements from the right of the pivot element
