@@ -81,9 +81,7 @@ public class TestSorting
     private void TestsSorting(ISort sorter, int[] givenSeq)
     {
         // Set up
-        var expectedSeq = new int[givenSeq.Length];
-        Array.Copy(givenSeq, expectedSeq, givenSeq.Length);
-        Array.Sort(expectedSeq);
+        var expectedSeq = TestUtility.GetSortedCopy(givenSeq);
         
         // Act
         sorter.Sort(givenSeq);
