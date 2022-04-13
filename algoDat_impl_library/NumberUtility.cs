@@ -16,9 +16,7 @@ public static class NumberUtility
     }
 
     private static readonly int[] SForTruncateAt;
-
-
-
+    
     /// <summary>
     /// Returns the number at a certain digit of a number
     /// </summary>
@@ -34,6 +32,9 @@ public static class NumberUtility
     /// <example>
     /// NumberUtility.GetDigitAt(148, 1) => 4
     /// </example>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown if the parameter index is outside of valid range between 0 and 9.
+    /// </exception>
     public static int GetDigitAt(int toExtractFrom, int index)
     {
         if (index < 0 || index > 9)
