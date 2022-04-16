@@ -8,4 +8,8 @@
         <RootNamespace>algoDat_impl_library</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="DataStructure" />
+    </ItemGroup>
+
 </Project>

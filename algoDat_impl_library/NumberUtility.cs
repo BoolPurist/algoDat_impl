@@ -12,10 +12,10 @@ public static class NumberUtility
             truncates.Add(truncateFactor);
         }
 
-        SForTruncateAt = truncates.ToArray();
+        _sForTruncateAt = truncates.ToArray();
     }
-
-    private static readonly int[] SForTruncateAt;
+    
+    private static readonly int[] _sForTruncateAt;
     
     /// <summary>
     /// Returns the number at a certain digit of a number
@@ -24,7 +24,7 @@ public static class NumberUtility
     /// Number to extract the digit from.
     /// </param>
     /// <param name="index">
-    /// Which digit to get number from. Expected values between 0 to 9
+    /// Which digit to get number from. Expected values are between 0 to 9
     /// </param>
     /// <returns>
     /// Returns the digit value between 0 and 9 at a certain spot.
@@ -41,6 +41,21 @@ public static class NumberUtility
         {
             throw new ArgumentOutOfRangeException(nameof(index), index, $"parameter is outside of valid range between 0 between 9");
         }
-        return (toExtractFrom / SForTruncateAt[index]) % 10;
+        return (toExtractFrom / _sForTruncateAt[index]) % 10;
+    }
+
+    public static int GetDigitCount(int number)
+    {
+        int counter = 1;
+        const int factor = 10;
+        int currentDivision = number / factor; 
+        
+        while (currentDivision != 0)
+        {
+            counter++;
+            currentDivision /= factor;
+        }
+
+        return counter;
     }
 }

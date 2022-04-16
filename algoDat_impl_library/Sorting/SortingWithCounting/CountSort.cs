@@ -10,7 +10,7 @@ public class CountSort
     {
         _max = max;
     }
-
+    
     public void Sort(IList<int> toSort)
     {
         var counting = new int[toSort.Count + 1];
@@ -20,12 +20,8 @@ public class CountSort
         {
             counting[index]++;
         }
-        
-        for (int i = 1; i < counting.Length; i++)
-        {
-            counting[i] = counting[i - 1] + counting[i];
-            Debug.Assert(counting[i] >= counting[i - 1]);
-        }
+
+        AddCountingUp(counting);
 
         int[] result = new int[toSort.Count];
         for (int i = result.Length - 1; i != -1; i--)
@@ -39,6 +35,15 @@ public class CountSort
         for (int i = 0; i < result.Length; i++)
         {
             toSort[i] = result[i];
+        }
+    }
+
+    public static void AddCountingUp(IList<int> counting)
+    {
+        for (int i = 1; i < counting.Count; i++)
+        {
+            counting[i] = counting[i - 1] + counting[i];
+            Debug.Assert(counting[i] >= counting[i - 1]);
         }
     }
 }
